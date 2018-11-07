@@ -1,0 +1,141 @@
+<ion-header class="transparent">
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu" class="text-white"></ion-icon>
+        </button>
+    </ion-navbar>
+
+</ion-header>
+<ion-content>
+    <div style="position: relative">
+        <img *ngIf="post.featured_media == 0" (click)="postDetailPage(post)" style="display: block;" src="assets/imgs/layer2.png">
+		<img *ngIf="post.featured_media != 0" (click)="postDetailPage(post)" style="display: block;" data-src="{{post._embedded['wp:featuredmedia'][0].source_url}}">
+        <!-- <span class="lable text-white position">TRAVEL</span> -->
+    </div>
+    <ion-card class="latest-card">
+        <ion-card-content>
+            <ion-card-title [innerHTML]="post.title.rendered"></ion-card-title>
+			<small>{{post.date}}</small>
+            <p [innerHTML]="post.content.rendered"></p>
+        </ion-card-content>
+    </ion-card>
+    <div class="share" padding-left padding-right padding-bottom>
+        <h4>Share now</h4>
+        <div class="icons">
+            <img src="assets/imgs/ic_facebook.png" (click)="shareFacebook(post)">
+            <img src="assets/imgs/ic_twitter.png" (click)="shareTwitter(post)">
+            <img src="assets/imgs/ic_pinterest.png" (click)="shareMore(post)">
+            <img src="assets/imgs/ic_google+.png" (click)="shareMore(post)">
+            <img src="assets/imgs/ic_whatsapp.png" (click)="shareMore(post)">
+        </div>
+    </div>
+	<!--
+    <ion-card class="latest-card">
+        <div class="prives">
+            <p>Privious Article</p>
+            <h5>10 Strange Sports Rule We Bet You Havenot Heard Of</h5>
+            <p text-right>Next Article</p>
+            <h5 text-right>10 Strange Sports Rule We Bet You Havenot Heard Of</h5>
+        </div>
+    </ion-card>
+	-->
+	
+	<!--
+    <div padding>
+        <div class="select-row"> <strong class="text-white" style="font-size: 1.7rem;padding: 14px 18px;">
+        Comments
+        </strong>
+            <ion-list>
+                <ion-item>
+                    <ion-label>&nbsp;</ion-label>
+
+                </ion-item>
+            </ion-list>
+        </div>
+    </div>
+    <ion-card style="width: 100%;margin: 0;box-shadow: none;">
+        <ion-list class="comment">
+            <ion-item>
+                <ion-thumbnail item-start> <img src="assets/imgs/user1.png"> </ion-thumbnail>
+                <div class="">
+                    <h2>Herry George</h2>
+                    <p>Oct, 08 2017 at 11:25 pm</p>
+                    <h3>Awesome theme.<br>Must Buy Really Worth it.</h3>
+                </div>
+            </ion-item>
+            <ion-item>
+                <ion-thumbnail item-start> <img src="assets/imgs/user1.png"> </ion-thumbnail>
+                <div class="">
+                    <h2>Herry George</h2>
+                    <p>Oct, 08 2017 at 11:25 pm</p>
+                    <h3>Awesome theme.<br>Must Buy Really Worth it.</h3>
+                </div>
+            </ion-item>
+            <ion-item>
+                <ion-thumbnail item-start> <img src="assets/imgs/user1.png"> </ion-thumbnail>
+                <div class="">
+                    <h2>Herry George</h2>
+                    <p>Oct, 08 2017 at 11:25 pm</p>
+                    <h3>Awesome theme.<br>Must Buy Really Worth it.</h3>
+                </div>
+            </ion-item>
+            <ion-item>
+                <ion-thumbnail item-start> <img src="assets/imgs/user1.png"> </ion-thumbnail>
+                <div class="">
+                    <h2>Herry George</h2>
+                    <p>Oct, 08 2017 at 11:25 pm</p>
+                    <h3>Awesome theme.<br>Must Buy Really Worth it.</h3>
+                </div>
+            </ion-item>
+        </ion-list>
+<ion-item>
+    <ion-avatar item-start>
+        <img src="assets/imgs/hand.png">
+    </ion-avatar>
+    <h2>Marty McFly</h2>
+    <p>November 5, 1955</p>
+</ion-item>
+        <ion-card-content>
+            <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
+        </ion-card-content>
+    </ion-card>
+	-->
+	
+    <!-- <div padding><img src="assets/imgs/banner.png"></div> -->
+    <!--
+	<div padding>
+        <div class="select-row"> <strong class="text-white" style="font-size: 1.8rem;padding: 14px 18px;">
+        Related
+        </strong>
+            <ion-list>
+                <ion-item>
+                    <ion-label>&nbsp;</ion-label>
+                </ion-item>
+            </ion-list>
+        </div>
+    </div>
+    <div class="slid-list">
+        <ion-list>
+            <ion-item>
+                <ion-avatar item-start> <img src="assets/imgs/hand.png"> </ion-avatar>
+                <h2>6 Of The Craziest Thing People Have</h2>
+                <p><small>Dec 08, 2017</small></p>
+            </ion-item>
+        </ion-list>
+        <ion-list>
+            <ion-item>
+                <ion-avatar item-start> <img src="assets/imgs/hand.png"> </ion-avatar>
+                <h2>6 Of The Craziest Thing People Have</h2>
+                <p><small>Dec 08, 2017</small></p>
+            </ion-item>
+        </ion-list>
+        <ion-list>
+            <ion-item>
+                <ion-avatar item-start> <img src="assets/imgs/hand.png"> </ion-avatar>
+                <h2>6 Of The Craziest Thing People Have</h2>
+                <p><small>Dec 08, 2017</small></p>
+            </ion-item>
+        </ion-list>
+    </div>
+	-->
+</ion-content>

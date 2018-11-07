@@ -1,0 +1,95 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu" class="text-white"></ion-icon>
+        </button>
+        <ion-title text-center><img src="assets/imgs/newswoop.png"></ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <div>
+        <ion-segment [(ngModel)]="listcontrol">
+            <ion-segment-button value="auther"> Auther </ion-segment-button>
+            <ion-segment-button value="comment"> Comments (05) </ion-segment-button>
+        </ion-segment>
+    </div>
+    <br>
+    <div [ngSwitch]="listcontrol">
+        <ion-list *ngSwitchCase="'auther'">
+            <ion-item>
+                <ion-thumbnail item-start> <img src="assets/imgs/user1.png"> </ion-thumbnail>
+                <div class="">
+                    <h2>Herry George</h2>
+                    <p>Oct, 08 2017 at 11:25 pm</p>
+                    <h3>Awesome theme.<br>Must Buy Really Worth it.</h3>
+                    <p>Replay</p>
+                </div>
+            </ion-item>
+            <ion-item>
+                <ion-thumbnail item-start> <img src="assets/imgs/user1.png"> </ion-thumbnail>
+                <div class="">
+                    <h2>Herry George</h2>
+                    <p>Oct, 08 2017 at 11:25 pm</p>
+                    <h3>Awesome theme.<br>Must Buy Really Worth it.</h3>
+                    <p>Replay</p>
+                </div>
+            </ion-item>
+            <ion-item>
+                <ion-thumbnail item-start> <img src="assets/imgs/user1.png"> </ion-thumbnail>
+                <div class="">
+                    <h2>Herry George</h2>
+                    <p>Oct, 08 2017 at 11:25 pm</p>
+                    <h3>Awesome theme.<br>Must Buy Really Worth it.</h3>
+                    <p>Replay</p>
+                </div>
+            </ion-item>
+            <ion-item>
+                <ion-thumbnail item-start> <img src="assets/imgs/user1.png"> </ion-thumbnail>
+                <div class="">
+                    <h2>Herry George</h2>
+                    <p>Oct, 08 2017 at 11:25 pm</p>
+                    <h3>Awesome theme.<br>Must Buy Really Worth it.</h3>
+                    <p>Replay</p>
+                </div>
+            </ion-item>
+        </ion-list>
+        <ion-list *ngSwitchCase="'comment'">
+            <ion-item>
+                <ion-thumbnail item-start> <img src="assets/imgs/user1.png"> </ion-thumbnail>
+                <div class="">
+                    <h2>Herry George</h2>
+                    <p>Oct, 08 2017 at 11:25 pm</p>
+                    <h3>Awesome theme.<br>Must Buy Really Worth it.</h3>
+                    <p>Replay</p>
+                </div>
+            </ion-item>
+            <ion-item>
+                <ion-thumbnail item-start> <img src="assets/imgs/user1.png"> </ion-thumbnail>
+                <div class="">
+                    <h2>Herry George</h2>
+                    <p>Oct, 08 2017 at 11:25 pm</p>
+                    <h3>Awesome theme.<br>Must Buy Really Worth it.</h3>
+                    <p>Replay</p>
+                </div>
+            </ion-item>
+            <ion-item>
+                <ion-thumbnail item-start> <img src="assets/imgs/user1.png"> </ion-thumbnail>
+                <div class="">
+                    <h2>Herry George</h2>
+                    <p>Oct, 08 2017 at 11:25 pm</p>
+                    <h3>Awesome theme.<br>Must Buy Really Worth it.</h3>
+                    <p>Replay</p>
+                </div>
+            </ion-item>
+            <ion-item>
+                <ion-thumbnail item-start> <img src="assets/imgs/user1.png"> </ion-thumbnail>
+                <div class="">
+                    <h2>Herry George</h2>
+                    <p>Oct, 08 2017 at 11:25 pm</p>
+                    <h3>Awesome theme.<br>Must Buy Really Worth it.</h3>
+                    <p>Replay</p>
+                </div>
+            </ion-item>
+        </ion-list>
+    </div>
+</ion-content>

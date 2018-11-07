@@ -1,0 +1,33 @@
+<ion-header class="bg-transparent">
+  <ion-navbar>
+    <ion-searchbar (ionInput)="getItems($event)" [debounce]="1000" 
+      placeholder="What'd you like to search?"></ion-searchbar>
+    <!-- <ion-title>
+    </ion-title> -->
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="recent-searchs" padding-left padding-right padding-bottom margin-bottom *ngIf="queryHistory.length>0">
+    <p>Recent searches</p>
+    <ion-list no-lines>
+      <ion-item *ngFor="let query of queryHistory" (click)="search(query)">
+        {{query}}
+      </ion-item>
+    </ion-list>
+  </div>
+  <ion-list>
+    <ion-card class="latest-card" *ngFor="let post of postsList">
+      <img *ngIf="post.featured_media == 0" (click)="postDetailPage(post)" src="assets/imgs/layer2.png">
+      <img *ngIf="post.featured_media != 0" (click)="postDetailPage(post)" data-src="{{post._embedded['wp:featuredmedia'][0].source_url}}">
+        <!-- <strong class="text-white">LIFE STYLE</strong> -->
+      <ion-card-content>
+        <ion-card-title [innerHTML]="post.title.rendered"></ion-card-title>
+        <small>{{post.date}}</small>
+        <p style="overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;" [innerHTML]="post.excerpt.rendered"></p>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="!cantScroll"><ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

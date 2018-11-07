@@ -1,0 +1,135 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+        <ion-icon name="menu" class="text-white"></ion-icon>
+    </button>
+    <ion-title text-center><img src="assets/imgs/newswoop.png"></ion-title>
+    <ion-icon name="search" class="search text-white" (click)="searchPage()"></ion-icon>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-card class="top-card" *ngIf="headerPost">
+		<img *ngIf="headerPost.featured_media == 0" (click)="postDetailPage(headerPost)" src="assets/imgs/layer2.png">
+		<img *ngIf="headerPost.featured_media != 0" (click)="postDetailPage(headerPost)" data-src="{{headerPost._embedded['wp:featuredmedia'][0].source_url}}">
+        <ion-card-content>
+			<!-- <span class="lable text-white">TRAVEL</span> -->
+            <ion-card-title class="text-white" [innerHTML]="headerPost.title.rendered"></ion-card-title>
+            <p class="text-white">{{headerPost.date}}</p>
+        </ion-card-content>
+    </ion-card>
+	<ion-slides *ngIf="sliderPostsList && sliderPostsList.length" autoplay="3000" loop="true" speed="1000">
+        <ion-slide *ngFor="let post of sliderPostsList">
+			<ion-card class="top-card">
+				<img *ngIf="post.featured_media == 0" (click)="postDetailPage(post)" src="assets/imgs/layer2.png">
+				<img *ngIf="post.featured_media != 0" (click)="postDetailPage(post)" data-src="{{post._embedded['wp:featuredmedia'][0].source_url}}">
+                <ion-card-content>
+					<!-- <span class="lable text-white">TRAVEL</span> -->
+                    <ion-card-title class="text-white" [innerHTML]="post.title.rendered"></ion-card-title>
+                </ion-card-content>
+            </ion-card>
+        </ion-slide>
+    </ion-slides>
+	<!--
+    <div class="scrool-row">
+        <div class="scrool-container">
+            <div *ngFor="let post of sliderPostsList" class="scroll-item">
+                <ion-card class="top-card">
+					<img *ngIf="post.featured_media == 0" (click)="postDetailPage(post)" src="assets/imgs/layer2.png">
+					<img *ngIf="post.featured_media != 0" (click)="postDetailPage(post)" data-src="{{post._embedded['wp:featuredmedia'][0].source_url}}">
+                    <ion-card-content>
+                        <ion-card-title class="text-white" [innerHTML]="post.title.rendered"></ion-card-title>
+                    </ion-card-content>
+                </ion-card>
+            </div>
+        </div>
+    </div>
+	-->
+    <!-- <p text-center class="lable-text"><strong>TRENDING NOW</strong><span padding>I Don't Want A Checklist Boyfriend To Admire, I'd Rather Have Someone Real To Love !</span></p> -->
+    <div padding>
+        <div class="select-row">
+            <strong class="text-white" style="font-size: 1.8rem;padding: 14px 18px;">
+        Latest
+        </strong>
+            <ion-list>
+                <ion-item>&nbsp;</ion-item>
+            </ion-list>
+        </div>
+    </div>
+	<ion-list>
+    <ion-card class="latest-card" *ngFor="let post of postsList">
+        <img *ngIf="post.featured_media == 0" (click)="postDetailPage(post)" src="assets/imgs/layer2.png">
+		<img *ngIf="post.featured_media != 0" (click)="postDetailPage(post)" data-src="{{post._embedded['wp:featuredmedia'][0].source_url}}">
+        <!-- <strong class="text-white">LIFE STYLE</strong> -->
+        <ion-card-content>
+            <ion-card-title [innerHTML]="post.title.rendered"></ion-card-title>
+			<small>{{post.date}}</small>
+            <p style="overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;" [innerHTML]="post.excerpt.rendered"></p>
+        </ion-card-content>
+    </ion-card>
+	</ion-list>
+	<ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+		<ion-infinite-scroll-content></ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+	
+    <div padding>
+        <div class="select-row"> <strong class="text-white" padding>
+        Stay Connected
+        </strong>
+            <ion-list>
+                <ion-item>&nbsp;</ion-item>
+            </ion-list>
+        </div>
+    </div>
+    <div class="sosil-list">
+        <ion-list>
+            <ion-item>
+                <ion-avatar item-start> <img src="assets/imgs/ic_facebook.png"> </ion-avatar>
+                <h2>Facebook</h2>
+                <button ion-button color="secondary" outline href="#" onclick="window.open('https://www.facebook.com/', '_system')">Like</button>
+            </ion-item>
+        </ion-list>
+        <ion-list>
+            <ion-item>
+                <ion-avatar item-start> <img src="assets/imgs/ic_twitter.png"> </ion-avatar>
+                <h2>Twitter</h2>
+                <button ion-button color="secondary" outline href="#" onclick="window.open('https://www.twitter.com/', '_system')">Follow</button>
+            </ion-item>
+        </ion-list>
+        <ion-list>
+            <ion-item>
+                <ion-avatar item-start> <img src="assets/imgs/ic_youtube.png"> </ion-avatar>
+                <h2>Youtube</h2>
+                <button ion-button color="secondary" outline href="#" onclick="window.open('https://www.facebook.com/', '_system')">Subscribe</button>
+            </ion-item>
+        </ion-list>
+    </div>
+	
+    <!-- <div padding><img src="assets/imgs/banner.png"></div> -->
+
+    <!--
+	<div class="slid-list popler text-white">
+        <h4 padding><strong>OTHER POST</strong></h4>
+        <ion-list>
+            <ion-item (click)="details()">
+                <ion-avatar item-start> <img src="assets/imgs/layer6.png"> </ion-avatar>
+                <h2>6 Of The Craziest Thing People Have</h2>
+                <p><small>Dec 08, 2017</small></p>
+            </ion-item>
+        </ion-list>
+        <ion-list>
+            <ion-item (click)="details()">
+                <ion-avatar item-start> <img src="assets/imgs/layer7.png"> </ion-avatar>
+                <h2>6 Of The Craziest Thing People Have</h2>
+                <p><small>Dec 08, 2017</small></p>
+            </ion-item>
+        </ion-list>
+        <ion-list>
+            <ion-item (click)="details()">
+                <ion-avatar item-start> <img src="assets/imgs/layer8.png"> </ion-avatar>
+                <h2>6 Of The Craziest Thing People Have</h2>
+                <p><small>Dec 08, 2017</small></p>
+            </ion-item>
+        </ion-list>
+    </div>
+	-->
+</ion-content>

@@ -1,0 +1,25 @@
+<ion-menu [content]="content">
+    <ion-header class="nav-menu">
+        <ion-navbar>
+			<img src="assets/imgs/fb.png" class="menu-icon" href="#" menuClose onclick="window.open('https://www.facebook.com/', '_system')">
+			<img src="assets/imgs/twi.png" class="menu-icon" href="#" menuClose onclick="window.open('https://www.twitter.com/', '_system')">
+			<img src="assets/imgs/gm.png" class="menu-icon" href="#" menuClose onclick="window.open('https://plus.google.com/discover', '_system')">
+			<img src="assets/imgs/pin.png" class="menu-icon" href="#" menuClose onclick="window.open('https://in.pinterest.com/', '_system')">
+			<img src="assets/imgs/close.png" class="menu-icon close" menuClose>
+		</ion-navbar>
+    </ion-header>
+    <ion-content *ngIf="categories" class="menu-item">
+        <ion-card menuClose ion-item>
+            <ion-item>
+                <ion-avatar item-start> <img src="assets/imgs/ic_launcher.png"> </ion-avatar>
+                <h1 class="text-white">Categories</h1>
+            </ion-item>
+        </ion-card>
+        <ion-list>
+            <button menuClose ion-item (click)="goHome()" class="text-white active"> Feed </button>
+			<button menuClose ion-item *ngFor="let cat of categories" (click)="feedList(cat.id, cat.name)" class="text-white"> {{cat.name}} </button>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

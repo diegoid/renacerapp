@@ -1,0 +1,34 @@
+<ion-header class="transparent">
+    <ion-navbar>
+      <ion-title text-center>
+        <strong class="text-white">Sign in</strong>
+        <span float-right (click)="skipp()">
+          <ion-icon name="md-close" class="text-white"></ion-icon>
+        </span>
+      </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-img">
+    <div class="heading-details" padding text-center>
+        <h3 class="text-white">Welcome to</h3>
+        <img src="assets/imgs/newswoop.png">
+        <p class="text-white">Login to your account</p>
+    </div>
+    <div class="form" padding text-center>
+        <ion-list>
+            <ion-item>
+                <ion-label floating>Your Username</ion-label>
+                <ion-input style="color:white" type="text" [(ngModel)]="credentials.username"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label floating>Your Password</ion-label>
+                <ion-input style="color:white" type="password" [(ngModel)]="credentials.password"></ion-input>
+            </ion-item>
+        </ion-list>
+        <button class="btn" (click)="singIn()">LOG IN</button>
+        <p class="text-white" (click)="password()">Forgot Password?</p>
+		<p class="text-white" (click)="signUp()">Sign up now!</p>
+    </div>
+</ion-content>

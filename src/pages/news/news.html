@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu" class="text-white"></ion-icon>
+        </button>
+        <ion-title text-center><span class="text-white">{{catName}}</span></ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-list>
+		<ion-card class="latest-card" *ngFor="let post of postsList">
+			<img *ngIf="post.featured_media == 0" (click)="postDetailPage(post)" src="assets/imgs/layer2.png">
+			<img *ngIf="post.featured_media != 0" (click)="postDetailPage(post)" data-src="{{post._embedded['wp:featuredmedia'][0].source_url}}">
+			<!-- <strong class="text-white">LIFE STYLE</strong> -->
+			<ion-card-content>
+				<ion-card-title [innerHTML]="post.title.rendered"></ion-card-title>
+				<small>{{post.date}}</small>
+				<p style="overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;" [innerHTML]="post.excerpt.rendered"></p>
+			</ion-card-content>
+		</ion-card>
+	</ion-list>
+	<ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+		<ion-infinite-scroll-content></ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+</ion-content>

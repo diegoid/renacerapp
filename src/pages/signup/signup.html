@@ -1,0 +1,38 @@
+<ion-header class="transparent">
+    <ion-navbar>
+        <ion-title text-center><strong class="text-white">Sign up</strong><span float-right><ion-icon name="md-close" class="text-white"></ion-icon></span></ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-img">
+    <div class="heading-details" padding text-center>
+        <h3 class="text-white">Welcome to</h3>
+        <img src="assets/imgs/newswoop.png">
+        <p class="text-white">Create new account</p>
+    </div>
+    <div class="form" padding text-center>
+        <ion-list>
+            <ion-item>
+                <ion-label floating>Your Username</ion-label>
+                <ion-input type="text" style="color:white" [(ngModel)]="registerRequest.username"></ion-input>
+            </ion-item>
+			
+			<ion-item>
+                <ion-label floating>Email</ion-label>
+                <ion-input type="email" style="color:white" [(ngModel)]="registerRequest.email"></ion-input>
+            </ion-item>
+			
+			<ion-item>
+                <ion-label floating>Your Password</ion-label>
+                <ion-input type="password" style="color:white" [(ngModel)]="registerRequest.password"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label floating>Confirm Password</ion-label>
+                <ion-input type="password" style="color:white" [(ngModel)]="registerRequestPasswordConfirm"></ion-input>
+            </ion-item>
+        </ion-list>
+        <button class="btn" (click)="register()">SIGN UP</button>
+        <p class="text-white" (click)="goToSignIn()">Already signed up? Sign in</p>
+    </div>
+</ion-content>

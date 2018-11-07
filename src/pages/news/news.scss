@@ -1,0 +1,32 @@
+page-news {
+    .latest-card {
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        strong.text-white {
+            padding: 3px 10px;
+            font-size: 1rem;
+            background: #81b441;
+            position: absolute;
+            margin: -3rem auto 0rem 1.6rem;
+            z-index: 11;
+        }
+        ion-card-content {
+            padding-left: 10px !important;
+            padding-right: 10px !important;
+            small {
+                display: block;
+                margin-bottom: 1rem;
+            }
+        }
+        ion-card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+    }
+    .row-btn {
+        padding: 0 16px;
+        .button {
+            padding: 1.5rem !important;
+        }
+    }
+}
